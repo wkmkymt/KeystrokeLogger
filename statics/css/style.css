@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+n/* ==============================================
+   ==================== Base ====================
+   ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+article,
+section,
+nav,
+aside,
+header,
+footer {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* ==============================================
+   ==================== Body ====================
+   ============================================== */
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    color: #333;
+    font-size: 100%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, "メイリオ", Meiryo,
+                 "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "MS Pゴシック", "MS PGothic",
+                 "Osaka", Osaka, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+/* ==============================================
+   ==================== Main ====================
+   ============================================== */
+
+main {
+    width: 100%;
+}
+
+main h1 {
+    color: #5fa;
+}
+
+.wrap {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5%;
+}
+
+
+/* Keystroke Input */
+
+.keystrokeInput {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.keystrokeInput input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 32px;
+    border: solid 4px #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.keystrokeInput input:focus {
+    border-color: #5c8;
+}
+
+
+/* Keystroke List */
+
+.keystrokeList {
+    width :100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+}
+
+.keystrokeList thead {
+    border-bottom: solid 4px #5c8;
+}
+
+.keystrokeList th,
+.keystrokeList td {
+    padding: 8px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.keystrokeList th {
+    color: #3a6;
+    font-weight: bold;
+}
+
+.keystrokeList th:first-of-type,
+.keystrokeList td:first-of-type {
+    width: 30%;
+}
+
+.keystrokeList th:last-of-type,
+.keystrokeList td:last-of-type {
+    width: 70%;
+}

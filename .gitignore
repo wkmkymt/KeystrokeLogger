@@ -1,0 +1,8 @@
+# Git Keep
+!.gitkeep
+
+# DataBase Files
+dbs/*.db
+
+# Chache Files
+**/__pycache__/
