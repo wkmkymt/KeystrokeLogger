@@ -2,7 +2,7 @@
 
 from flask_script import Manager
 
-from index import app
+from app import app
 from models import db
 
 

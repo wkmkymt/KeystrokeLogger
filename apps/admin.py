@@ -3,7 +3,7 @@
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 
-from index import app
+from app import app
 from models import db, Keystroke
 
 
