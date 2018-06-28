@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main -%}
+      <form action="{{ url_for("main.preset") }}" method="POST">
+        <div class="question-box">
+          <p class="question">
+            名前をローマ字で入力して下さい。
+          </p>
+          <div class="input-box">
+            <label>LAST NAME</label>
+            <input type="text" name="last_name" placeholder="AKASHI" required />
+          </div>
+          <div class="input-box">
+            <label>FIRST NAME</label>
+            <input type="text" name="first_name" placeholder="TARO" required />
+          </div>
+        </div>
+
+        <div class="submit-btn">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+{%- endblock %}

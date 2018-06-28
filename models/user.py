@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from flask_login import UserMixin
+
 from models import db
 
 
@@ -7,24 +9,27 @@ from models import db
 #  User Model
 # ==================================================
 
-class User(db.Model):
-    id         = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Unicode(30))
-    last_name  = db.Column(db.Unicode(30))
-    school_id  = db.Column(db.Unicode(6))
-    city_name  = db.Column(db.Unicode(30))
-    keystrokes = db.relationship("Keystroke", backref="user", lazy="dynamic", cascade="all, delete-orphan")
+class User(db.Model, UserMixin):
+    id      = db.Column(db.Integer, primary_key=True)
+    tokens  = db.Column(db.Unicode(200))
+    email   = db.Column(db.Unicode(30))
+    fname_k = db.Column(db.Unicode(30))
+    lname_k = db.Column(db.Unicode(30))
+    fname_r = db.Column(db.Unicode(30))
+    lname_r = db.Column(db.Unicode(30))
 
-    def __init__(self, first_name, last_name, school_id, city_name):
-        self.first_name = first_name
-        self.last_name  = last_name
-        self.school_id  = school_id
-        self.city_name  = city_name
+    def __init__(self, tokens=None, email=None, lname_k=None, fname_k=None, lname_r=None, fname_r=None):
+        self.tokens  = tokens
+        self.email   = email
+        self.lname_k = lname_k
+        self.fname_k = fname_k
+        self.lname_r = lname_r
+        self.fname_r = fname_r
 
     def __repr__(self):
-        return "<User %d>" % self.id
+        return "<User: %s %s>" % (self.lname_k, self.fname_k)
 
     @classmethod
-    def save(cls, val):
-        db.session.add(cls(*val))
+    def save(cls, user):
+        db.session.add(user)
         db.session.commit()

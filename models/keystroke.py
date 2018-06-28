@@ -15,7 +15,7 @@ class Keystroke(db.Model):
     press_time   = db.Column(db.DateTime)
     release_time = db.Column(db.DateTime)
 
-    def __init__(self, user_id, target_id, character, press_time, release_time):
+    def __init__(self, user_id=None, target_id=None, character=None, press_time=None, release_time=None):
         self.user_id      = user_id
         self.target_id    = target_id
         self.character    = character

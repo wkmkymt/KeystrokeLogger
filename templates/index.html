@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
-{% block main %}
-      <div class="btn">
-        <a href="/register/">登録</a>
-      </div>
-{% endblock %}
+{% block main -%}
+      {% if not current_user.is_authenticated -%}
+      <div class="btn join"><a href="{{ url_for("login.login") }}">ログイン</a></div>
+      {%- else -%}
+      <ul style="text-align:center">
+        <li>Mail Address：　{{ current_user.email }}</li>
+        <li>  First Name：　{{ current_user.fname_k }}</li>
+        <li>  Last  Name：　{{ current_user.lname_k }}</li>
+      </ul>
+
+      <div class="btn register"><a href="{{ url_for("main.register") }}">キーストローク登録</a></div>
+      <div class="btn authtest"><a href="{{ url_for("main.authtest") }}">認証テスト</a></div>
+      {% endif %}
+{%- endblock %}

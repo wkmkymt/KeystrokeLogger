@@ -4,7 +4,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 
 from app import app
-from models import db, Keystroke
+from models import db, Keystroke, User
 
 
 # ==================================================
@@ -21,4 +21,5 @@ from models import db, Keystroke
 
 admin = Admin(app, name=u"管理画面", template_mode="bootstrap3")
 admin.add_view(ModelView(Keystroke, db.session, name=u"キーストローク"))
+admin.add_view(ModelView(User, db.session, name=u"ユーザ"))
 # admin.add_view(MyKeystrokeView(Keystroke, db.session, name=u"キーストローク"))
