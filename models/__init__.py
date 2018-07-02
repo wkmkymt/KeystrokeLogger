@@ -16,3 +16,4 @@ db = SQLAlchemy(app)
 
 from models.keystroke import Keystroke
 from models.user      import User
+from models.sentence  import Sentence
