@@ -10,7 +10,6 @@ from config import BaseConfig
 app = Flask(__name__, static_folder="./statics")
 app.config.from_object(BaseConfig)
 
-
 # ==================================================
 #  Application
 # ==================================================
