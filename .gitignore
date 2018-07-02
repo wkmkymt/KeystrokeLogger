@@ -6,3 +6,6 @@ dbs/*.db
 
 # Chache Files
 **/__pycache__/
+
+# VScode
+.vscode
