@@ -8,11 +8,13 @@ from models import db
 # ==================================================
 
 class Sentence(db.Model):
-    id       = db.Column(db.Integer, primary_key=True)
-    sentence = db.Column(db.UnicodeText)
+    id     = db.Column(db.Integer, primary_key=True)
+    text_k = db.Column(db.UnicodeText)
+    text_r = db.Column(db.UnicodeText)
 
-    def __init__(self, sentence):
-        self.sentence = sentence
+    def __init__(self, text_k, text_r):
+        self.text_k = text_k
+        self.text_r = text_r
         
     def __repr__(self):
         return "<Sentence %d>" % self.id
@@ -21,3 +23,7 @@ class Sentence(db.Model):
     def save(cls, val):
         db.session.add(cls(*val))
         db.session.commit()
+
+    @classmethod
+    def getFirst(cls):
+        return db.session.query(cls).first()
