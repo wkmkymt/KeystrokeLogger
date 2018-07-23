@@ -3,7 +3,7 @@
 from flask       import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 
-from models         import User
+from models         import User, Sentence
 from .login_manager import login_manager
 
 
@@ -41,7 +41,8 @@ def preset():
 def register():
     if current_user.lname_r == None or current_user.fname_r == None:
         return redirect(url_for(".preset"))
-    return render_template("register.html")
+    sentence = Sentence.getFirst()
+    return render_template("register.html", sentence = sentence)
 
 
 @app.route("/authtest")

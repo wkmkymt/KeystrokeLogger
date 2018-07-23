@@ -12,10 +12,10 @@ class Sentence(db.Model):
     text_k = db.Column(db.UnicodeText)
     text_r = db.Column(db.UnicodeText)
 
-    def __init__(self, text_k, text_r):
+    def __init__(self, text_k=None, text_r=None):
         self.text_k = text_k
         self.text_r = text_r
-        
+
     def __repr__(self):
         return "<Sentence %d>" % self.id
 

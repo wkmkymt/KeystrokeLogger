@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 
 {% block main -%}
-      <ul style="text-align:center">
-        <li>Mail Address：　{{ current_user.email }}</li>
-        <li>  性：　{{ current_user.lname_k }}</li>
-        <li>  名：　{{ current_user.fname_k }}</li>
-        <li>  First Name：　{{ current_user.lname_r }}</li>
-        <li>  Last  Name：　{{ current_user.fname_r }}</li>
-      </ul>
+     <p>{{ sentence.text_k }}</p>
+     <p>{{ sentence.text_r }}</p>
 {%- endblock %}
