@@ -1,23 +1,25 @@
 {% extends "base.html" %}
 
-{% block main -%}
-    <script src="/statics/js/keystroke.js"></script>
+{% block script -%}
+    <script src="/statics/dist/js/keystroke.js"></script>
 {%- endblock %}
 
 {% block main -%}
-      <div class="register-form">
-        <div class="question-box">
-          <p class="question ja">{{ sentence.text_k }}</p>
-          <p class="question ro">{{ sentence.text_r }}</p>
-        </div>
+      <div class="question-box register">
+        <p class="question ja">{{ sentence.text_k }}</p>
+        <p class="question ro">{{ sentence.text_r }}</p>
+      </div>
 
-        <div class="input-box">
-          <input id="keystroke" type="text" name="keystroke" placeholder="{{ sentence.text_r }}" required />
-        </div>
-
-        <div class="submit-btn">
-          <input id="cancel-btn" type="button" value="Cancel" />
-          <input id="ok-btn" type="button" value="OK" />
-        </div>
+      <div id="register-form">
       </div>
 {%- endblock %}
+
+
+<!-- <div class="input-box">
+  <input id="keystroke" type="text" name="keystroke" placeholder="{{ sentence.text_r }}" required />
+</div>
+
+<div class="submit-btn">
+  <input id="cancel-btn" type="button" value="Cancel" />
+  <input id="ok-btn" type="button" value="OK" />
+</div> -->

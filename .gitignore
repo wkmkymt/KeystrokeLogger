@@ -14,3 +14,4 @@ dbs/*.db
 **/node_modules
 .tern-port
 .yarnclean
+yarn-error.log

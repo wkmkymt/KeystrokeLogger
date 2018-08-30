@@ -26,6 +26,6 @@ class Keystroke(db.Model):
         return "<Keystroke %d>" % self.id
 
     @classmethod
-    def save(cls, val):
+    def save(cls, *val):
         db.session.add(cls(*val))
         db.session.commit()

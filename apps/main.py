@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from flask       import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 
-from models         import User, Sentence
+from models         import User, Sentence, Keystroke
 from .login_manager import login_manager
 
 
@@ -36,7 +38,7 @@ def preset():
         return redirect(url_for(".register"))
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 @login_required
 def register():
     if request.method == "GET":
@@ -45,7 +47,13 @@ def register():
         sentence = Sentence.getLast()
         return render_template("register.html", sentence = sentence)
     else:
-        pass
+        strokesList = request.json["strokesList"]
+        for strokes in strokesList:
+            for stroke in strokes:
+                stroke["press"]   = datetime.fromtimestamp(int(stroke["press"]))
+                stroke["release"] = datetime.fromtimestamp(int(stroke["release"]))
+                Keystroke.save(current_user.id, current_user.id, stroke["key"], stroke["press"], stroke["release"])
+        return "OK!"
 
 
 @app.route("/authtest")
