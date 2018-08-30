@@ -13,8 +13,8 @@ class Keystroke(db.Model):
     target_id    = db.Column(db.Integer, db.ForeignKey("user.id"))
     count        = db.Column(db.Integer)
     character    = db.Column(db.Unicode(1))
-    press_time   = db.Column(db.Integer)
-    release_time = db.Column(db.Integer)
+    press_time   = db.Column(db.Float)
+    release_time = db.Column(db.Float)
 
     def __init__(self, user_id=None, target_id=None, count=None, character=None, press_time=None, release_time=None):
         self.user_id      = user_id
