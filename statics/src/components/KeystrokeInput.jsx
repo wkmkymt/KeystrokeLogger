@@ -20,7 +20,7 @@ export default class KeystrokeInput extends React.Component {
   _onStroke(e) {
     let key  = this.getKey(e.keyCode)
     let event = e.type == "keydown" ? "p" : "r"
-    let time = this.getDate(new Date()) / 1000
+    let time = this.getDate(new Date())
 
     if(key)
       this.props.onStroke({ key: key, event: event, time: time })
