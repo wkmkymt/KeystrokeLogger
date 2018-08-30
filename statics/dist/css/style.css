@@ -94,7 +94,14 @@ nav {
     right: 40px;
 }
 
+nav > .username {
+    margin-right: 20px;
+    color: #5ca;
+    font-size: 130%;
+}
+
 nav > .btn {
+    display: inline-block;
     margin: 0 !important;
 }
 
@@ -105,7 +112,7 @@ nav > .btn a {
     line-height: 40px;
     background: #3a8;
     color: #fff;
-    font-size: 100%;
+    font-size: 150%;
 }
 
 nav > .btn a:hover {
@@ -151,7 +158,7 @@ main {
  *    Button List
  * ===================================== */
 
-form {
+form, .register-form {
     width: 90%;
     max-width: 1080px;
     margin: 0 auto;
@@ -165,14 +172,25 @@ form {
     border-radius: 4px;
 }
 
-.question-box .input-box {
+.register-form .question-box {
+    padding: 32px 64px;
+    font-size: 200%;
+    line-height: 200%;
+}
+
+.input-box {
     width: 100%;
     margin-top: 32px;
     padding: 0 44px;
     overflow: hidden;
 }
 
-.question-box .input-box label {
+.register-form .input-box {
+    padding: 0;
+    margin-bottom: 32px;
+}
+
+.input-box label {
     display: inline-block;
     width: 20%;
     height: 40px;
@@ -184,18 +202,24 @@ form {
     float: left;
 }
 
-.question-box .input-box input[type="text"] {
+.input-box input[type="text"] {
     width: 80%;
     height: 40px;
     padding: 8px;
     font-size: 120%;
     line-height: 40px;
-    border-right: 4px;
+    border-radius: 4px;
     outline: none;
     float: left;
 }
 
-.question-box .input-box input[type="text"]:focus {
+.register-form input[type="text"] {
+    width: 100%;
+    padding: 24px 64px;
+    font-size: 200%;
+}
+
+.input-box input[type="text"]:focus {
     outline: solid 2px #3a8;
 }
 
@@ -203,22 +227,31 @@ form {
     text-align: right;
 }
 
-.submit-btn > input[type="submit"] {
+.submit-btn > input {
     width: 20%;
     background: #5ca;
     padding: 16px 32px;
     color: #333;
     font-family: Orbitron, sans-serif;
     font-size: 120%;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
     transition: All 0.2s ease-in;
 }
 
-.submit-btn > input[type="submit"]:hover {
+.submit-btn > input:hover {
     background: #3a8;
+}
+
+.submit-btn > #cancel-btn {
+    margin-right: 32px;
+    background: #f55;
+}
+
+.submit-btn > #cancel-btn:hover {
+    background: #d55;
 }
 
 

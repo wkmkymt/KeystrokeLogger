@@ -13,3 +13,4 @@ dbs/*.db
 # Node
 **/node_modules
 .tern-port
+.yarnclean
