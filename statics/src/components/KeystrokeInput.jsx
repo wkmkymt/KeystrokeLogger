@@ -18,21 +18,19 @@ export default class KeystrokeInput extends React.Component {
   }
 
   _onStroke(e) {
-    let key  = this.getKey(e.keyCode, e.shiftKey)
+    let key  = this.getKey(e.keyCode)
     let event = e.type == "keydown" ? "p" : "r"
     let time = this.getDate(new Date()) / 1000
 
-    this.props.onStroke({ key: key, event: event, time: time })
+    if(key)
+      this.props.onStroke({ key: key, event: event, time: time })
   }
 
-  getKey(c, shift) {
-    const spkeyList = { 8: "Backspace", 13: "Enter", 16: "Shift", 17: "Ctrl", 18: "Alt", 20: "CapsLock" }
-
-    if(c in spkeyList)
-      return spkeyList[c]
-    if(shift)
-      return String.fromCharCode(c)
-    return String.fromCharCode(c).toLowerCase()
+  getKey(c) {
+    if(c >= 65 && c <= 90)
+      return String.fromCharCode(c).toLowerCase()
+    else
+      return undefined
   }
 
   getDate(date) {
