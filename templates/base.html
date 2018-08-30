@@ -11,17 +11,20 @@
   <body>
     <header>
       <h1><a href="{{ url_for("main.index") }}">Keystroke Logger</a></h1>
+      {% if current_user.is_authenticated -%}
       <nav>
-        <h1 class="btn">
-          {% if current_user.is_authenticated -%}
+        <span class="username">{{ current_user.lname_k}} {{ current_user.fname_k }}</span>
+        <div class="btn">
           <a href="{{ url_for("login.logout") }}">Logout</a>
-          {%- endif %}
-        </h1>
+        </div>
       </nav>
+      {%- endif %}
     </header>
 
     <main>
-      {% block main %}{% endblock %}
+        {% block main %}{% endblock %}
     </main>
+
+    {% block script %}{% endblock %}
   </body>
 </html>

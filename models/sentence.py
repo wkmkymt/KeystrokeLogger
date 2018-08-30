@@ -25,5 +25,5 @@ class Sentence(db.Model):
         db.session.commit()
 
     @classmethod
-    def getFirst(cls):
-        return db.session.query(cls).first()
+    def getLast(cls):
+        return db.session.query(cls).order_by(cls.id.desc()).first()

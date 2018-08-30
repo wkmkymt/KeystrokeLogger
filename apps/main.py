@@ -26,23 +26,26 @@ def index():
 @app.route("/preset", methods=["GET", "POST"])
 @login_required
 def preset():
-    if request.method == "POST":
+    if request.method == "GET":
+        return render_template("preset.html")
+    else:
         user = current_user
         user.lname_r = request.form["last_name"]
         user.fname_r = request.form["first_name"]
         User.save(user)
         return redirect(url_for(".register"))
-    else:
-        return render_template("preset.html")
 
 
 @app.route("/register")
 @login_required
 def register():
-    if current_user.lname_r == None or current_user.fname_r == None:
-        return redirect(url_for(".preset"))
-    sentence = Sentence.getFirst()
-    return render_template("register.html", sentence = sentence)
+    if request.method == "GET":
+        if current_user.lname_r == None or current_user.fname_r == None:
+            return redirect(url_for(".preset"))
+        sentence = Sentence.getLast()
+        return render_template("register.html", sentence = sentence)
+    else:
+        pass
 
 
 @app.route("/authtest")
