@@ -42,7 +42,7 @@ export default class Keystroke extends React.Component {
 
   saveStroke() {
     axios.post("/register", { "strokesList": this.state.strokesList} ).then(resp => {
-      location.href = "http://localhost:5000"
+      location.href = "/"
     }).catch(error => {
       console.log(error)
     })
@@ -75,9 +75,6 @@ export default class Keystroke extends React.Component {
         newList.push({ "key": stroke["key"], "press": stroke["time"], "release": "" })
         tmpList.push({ "key": stroke["key"], "index": newList.length - 1})
       } else {
-        console.log(stroke)
-        console.log(newList)
-        console.log(tmpList)
         let target = tmpList.find(v => v["key"] == stroke["key"])
         tmpList.splice(tmpList.indexOf(target), 1)
         newList[target["index"]]["release"] = stroke["time"]

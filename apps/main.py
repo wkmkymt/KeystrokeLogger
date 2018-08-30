@@ -57,7 +57,6 @@ def register():
         return render_template("register.html", sentence = sentence)
     else:
         strokesList = request.json["strokesList"]
-        print(strokesList)
         for index, strokes in enumerate(strokesList):
             for stroke in strokes:
                 stroke["press"]   = datetime.fromtimestamp(int(float(stroke["press"])))
