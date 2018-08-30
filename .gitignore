@@ -2,7 +2,7 @@
 !.gitkeep
 
 # DataBase Files
-dbs/*.db
+# dbs/*.db
 
 # Chache Files
 **/__pycache__/
