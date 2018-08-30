@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 from requests_oauthlib import OAuth2Session
 
 
@@ -10,8 +12,9 @@ from requests_oauthlib import OAuth2Session
 class BaseConfig(object):
     DEBUG                          = True
     SECRET_KEY                     = "gq7j847gq7j847gq7j847"
-    DATABASE_FILE                  = "dbs/keystroke.db"
-    SQLALCHEMY_DATABASE_URI        = "sqlite:///" + DATABASE_FILE
+    #DATABASE_FILE                  = "dbs/keystroke.db"
+    #SQLALCHEMY_DATABASE_URI        = "sqlite:///" + DATABASE_FILE
+    SQLALCHEMY_DATABASE_URI        = os.environ["DATABASE_URL"]
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     OAUTH1_PROVIDER_ENFORCE_SSL    = False
 
