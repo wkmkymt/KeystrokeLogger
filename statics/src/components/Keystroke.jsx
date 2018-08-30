@@ -75,9 +75,9 @@ export default class Keystroke extends React.Component {
   }
 
   countCheck() {
-    if(this.state.count < 2) {
+    if(this.state.count < 12) {
       this.setState({ count: this.state.count + 1 })
-      if(this.state.count == 1)
+      if(this.state.count == 11)
         this.setState({ btnValue: "Finish" })
     } else
       this.saveStroke()
