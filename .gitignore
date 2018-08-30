@@ -9,3 +9,7 @@ dbs/*.db
 
 # VScode
 .vscode
+
+# Node
+**/node_modules
+.tern-port
