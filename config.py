@@ -23,7 +23,8 @@ class BaseConfig(object):
 class GOOGLE(object):
     CLIENT_ID     = "767804331266-s5tn2psi484k2c5n5d2e7sl9blef7pqi.apps.googleusercontent.com"
     CLIENT_SECRET = "hItrQiau-ss9QDmx_3vua1UU"
-    REDIRECT_URI  = "http://localhost:5000/user/login/authorized"
+    REDIRECT_URI  = "https://keystroke-logger.herokuapp.com/user/login/authorized"
+    # REDIRECT_URI  = "http://localhost:5000/user/login/authorized"
 
     AUTH_URL  = "https://accounts.google.com/o/oauth2/auth"
     TOKEN_URL = "https://accounts.google.com/o/oauth2/token"
