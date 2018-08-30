@@ -59,8 +59,8 @@ def register():
         strokesList = request.json["strokesList"]
         for index, strokes in enumerate(strokesList):
             for stroke in strokes:
-                stroke["press"]   = datetime.fromtimestamp(int(float(stroke["press"])))
-                stroke["release"] = datetime.fromtimestamp(int(float(stroke["release"])))
+                stroke["press"]   = int(float(stroke["press"]))
+                stroke["release"] = int(float(stroke["release"]))
                 Keystroke.save(current_user.id, current_user.id, index, stroke["key"], stroke["press"], stroke["release"])
         return "OK!"
 
