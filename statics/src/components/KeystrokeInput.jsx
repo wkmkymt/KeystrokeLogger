@@ -43,6 +43,10 @@ export default class KeystrokeInput extends React.Component {
     document.getElementById("keyForm").value = ""
   }
 
+  focusForm() {
+    document.getElementById("keyForm").focus()
+  }
+
   render() {
     return (
       <div className="input-box">

@@ -13,7 +13,11 @@
       <h1><a href="{{ url_for("main.index") }}">Keystroke Logger</a></h1>
       {% if current_user.is_authenticated -%}
       <nav>
+        {% if current_user.lname_r == None -%}
         <span class="username">{{ current_user.lname_k}} {{ current_user.fname_k }}</span>
+        {%- else -%}
+        <span class="username">{{ current_user.lname_r}} {{ current_user.fname_r }}</span>
+        {%- endif %}
         <div class="btn">
           <a href="{{ url_for("login.logout") }}">Logout</a>
         </div>

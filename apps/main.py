@@ -22,13 +22,20 @@ app = Blueprint("main", __name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if current_user.is_authenticated:
+        keystrokes = Keystroke.getKeystrokesByUser(current_user.id)
+    else:
+        keystrokes = None
+    print(keystrokes)
+    return render_template("index.html", keystrokes = keystrokes)
 
 
 @app.route("/preset", methods=["GET", "POST"])
 @login_required
 def preset():
     if request.method == "GET":
+        if Keystroke.getKeystrokesByUser(current_user.id):
+            return redirect(url_for(".index"))
         return render_template("preset.html")
     else:
         user = current_user
@@ -44,15 +51,17 @@ def register():
     if request.method == "GET":
         if current_user.lname_r == None or current_user.fname_r == None:
             return redirect(url_for(".preset"))
+        if Keystroke.getKeystrokesByUser(current_user.id):
+            return redirect(url_for(".index"))
         sentence = Sentence.getLast()
         return render_template("register.html", sentence = sentence)
     else:
         strokesList = request.json["strokesList"]
-        for strokes in strokesList:
+        for index, strokes in enumerate(strokesList):
             for stroke in strokes:
                 stroke["press"]   = datetime.fromtimestamp(int(stroke["press"]))
                 stroke["release"] = datetime.fromtimestamp(int(stroke["release"]))
-                Keystroke.save(current_user.id, current_user.id, stroke["key"], stroke["press"], stroke["release"])
+                Keystroke.save(current_user.id, current_user.id, index, stroke["key"], stroke["press"], stroke["release"])
         return "OK!"
 
 

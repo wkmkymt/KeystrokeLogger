@@ -31,6 +31,10 @@ export default class Keystroke extends React.Component {
     this.countCheck  = this.countCheck.bind(this)
   }
 
+  componentDidMount() {
+    this.refs.KeystrokeInput.focusForm()
+  }
+
   onStroke(newStroke) {
     this.state.strokes.push(newStroke)
     this.setState({ strokes: this.state.strokes })
@@ -47,6 +51,7 @@ export default class Keystroke extends React.Component {
   resetStroke() {
     this.setState({ strokes: [] })
     this.refs.KeystrokeInput.clearForm()
+    this.refs.KeystrokeInput.focusForm()
   }
 
   nextStroke() {
@@ -72,7 +77,7 @@ export default class Keystroke extends React.Component {
   countCheck() {
     if(this.state.count < 2) {
       this.setState({ count: this.state.count + 1 })
-      if(this.state.count == 11)
+      if(this.state.count == 1)
         this.setState({ btnValue: "Finish" })
     } else
       this.saveStroke()
@@ -82,8 +87,8 @@ export default class Keystroke extends React.Component {
     return (
       <div className="wrap">
         <KeystrokeInput ref="KeystrokeInput" onStroke={this.onStroke} />
+        <div className="counter">{ this.state.count } / 12</div>
         <KeystrokeButton ref="KeystrokeButton" resetStroke={this.resetStroke} nextStroke={this.nextStroke} btnValue={this.state.btnValue} />
-        <p>{ this.state.count }</p>
       </div>
     )
   }
