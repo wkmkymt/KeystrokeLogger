@@ -119,6 +119,107 @@ nav > .btn a:hover {
     background: #5ca;
 }
 
+@media screen and (max-width: 620px) {
+    header > h1 a {
+        font-size: 100%;
+        padding: 0 24px 16px;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    header > h1 a {
+        font-size: 80%;
+        padding: 0 12px 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    header {
+        padding: 24px 0;
+    }
+
+    header > h1 a {
+        font-size: 60%;
+        padding: 0 8px 8px;
+    }
+}
+
+/*
+@media screen and (max-width: 620px) {
+    .drawer-btn {
+        position: absolute;
+        top: 64px;
+        right: 24px;
+        width: 32px;
+        height: 32px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .drawer-btn::after {
+        top: 14px;
+        transition: All 0.2s ease-in;
+    }
+
+    .drawer-btn::after,
+    .drawer-icon,
+    .drawer-icon::after,
+    .drawer-icon::before {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 32px;
+        height: 2px;
+        background: #3a8;
+        cursor: pointer
+    }
+
+    .drawer-icon {
+        top: 14px;
+        transition: All 0.2s ease-in;
+    }
+
+    .drawer-icon::after {
+        top: -10px;
+    }
+
+    .drawer-icon::before {
+        top: 10px;
+    }
+
+    .drawer-btn.open .drawer-icon {
+        transform: rotate(45deg);
+    }
+
+    .drawer-btn.open::after {
+        transform: rotate(-45deg);
+    }
+
+    .drawer-btn.open .drawer-icon::before,
+    .drawer-btn.open .drawer-icon::after {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .drawer-btn {
+        top: 70px;
+        right: 16px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .drawer-btn {
+        top: 38px;
+        right: 8px;
+    }
+}
+*/
+
 
 /* ============================================================================================
  *    Main
@@ -203,6 +304,10 @@ form, #register-form {
     line-height: 200%;
 }
 
+.question-box.register .ro {
+    letter-spacing: 2px;
+}
+
 .input-box {
     width: 100%;
     margin-top: 32px;
@@ -242,6 +347,8 @@ form, #register-form {
     width: 100%;
     padding: 24px 64px;
     font-size: 200%;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: 2px;
 }
 
 .input-box input[type="text"]:focus {
@@ -279,64 +386,52 @@ form, #register-form {
     background: #d55;
 }
 
+@media screen and (max-width: 620px) {
+    .btn > a {
+        width: 60%;
+    }
 
-/* =====================================
- *    Keystroke Input
- * ===================================== */
+    .question-box.register {
+        width: 90%;
+        padding: 32px;
+        font-size: 160%;
+    }
 
-.keystrokeInput {
-    width: 100%;
-    margin-bottom: 40px;
+    #register-form input[type="text"] {
+        padding: 24px 32px;
+        font-size: 180%;
+    }
+
+    .submit-btn > input {
+        width: 30%;
+    }
 }
 
-.keystrokeInput input {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 32px;
-    border: solid 4px #ccc;
-    border-radius: 5px;
-    outline: none;
-}
+@media screen and (max-width: 420px) {
+    .question-box.register {
+        padding: 16px;
+        font-size: 100%;
+    }
 
-.keystrokeInput input:focus {
-    border-color: #5c8;
-}
+    #register-form input[type="text"] {
+        height: 32px;
+        padding: 12px 16px;
+        font-size: 120%;
+    }
 
+    .submit-btn > input {
+        width: 25%;
+        padding: 8px 16px;
+        font-size: 100%;
+    }
 
-/* =====================================
- *    Keystroke List
- * ===================================== */
+    .counter {
+        height: 32px;
+        line-height: 32px;
+        font-size: 140%;
+    }
 
-.keystrokeList {
-    width :100%;
-    margin-top: 40px;
-    border-collapse: collapse;
-}
-
-.keystrokeList thead {
-    border-bottom: solid 4px #5c8;
-}
-
-.keystrokeList th,
-.keystrokeList td {
-    padding: 8px;
-    font-size: 24px;
-    text-align: center;
-    line-height: 24px;
-}
-
-.keystrokeList th {
-    color: #3a6;
-    font-weight: bold;
-}
-
-.keystrokeList th:first-of-type,
-.keystrokeList td:first-of-type {
-    width: 30%;
-}
-
-.keystrokeList th:last-of-type,
-.keystrokeList td:last-of-type {
-    width: 70%;
+    .input-box {
+        padding: 0;
+    }
 }
