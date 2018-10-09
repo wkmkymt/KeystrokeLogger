@@ -4,6 +4,7 @@
 # DataBase Files
 # dbs/*.db
 dbs/*.dump
+dbs/*.csv
 
 # Chache Files
 **/__pycache__/
