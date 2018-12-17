@@ -12,7 +12,13 @@ from models import db, Keystroke, User, Sentence
 # ==================================================
 
 class MyKeystrokeView(ModelView):
-    column_list = ("user_id", "target_id", "count", "character", "press_time", "release_time")
+    column_list = ("id", "user_id", "sentence_id", "count", "character", "press_time", "release_time")
+
+class MyUserView(ModelView):
+    column_list = ("id", "email", "fname_k", "lname_k", "fname_r", "lname_r")
+
+class MySentenceView(ModelView):
+    column_list = ("id", "text_k", "text_r")
 
 
 # ==================================================
@@ -21,5 +27,5 @@ class MyKeystrokeView(ModelView):
 
 admin = Admin(app, name=u"管理画面", template_mode="bootstrap3", url="/admin-ks")
 admin.add_view(MyKeystrokeView(Keystroke, db.session, name=u"キーストローク"))
-admin.add_view(ModelView(User, db.session, name=u"ユーザ"))
-admin.add_view(ModelView(Sentence, db.session, name=u"文章"))
+admin.add_view(MyUserView(User, db.session, name=u"ユーザ"))
+admin.add_view(MySentenceView(Sentence, db.session, name=u"文章"))

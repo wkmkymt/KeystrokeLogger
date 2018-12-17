@@ -18,13 +18,9 @@
       <div class="drawer-icon"></div>
     </div> -->
     <nav>
-      {% if current_user.lname_r == None -%}
       <span class="username">{{ current_user.lname_k}} {{ current_user.fname_k }}</span>
-      {%- else -%}
-      <span class="username">{{ current_user.lname_r}} {{ current_user.fname_r }}</span>
-      {%- endif %}
       <div class="btn">
-        <a href="{{ url_for("login.logout") }}">Logout</a>
+        <a href="{{ url_for("login.logout") }}">ログアウト</a>
       </div>
     </nav>
     {%- endif %}

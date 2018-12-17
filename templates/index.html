@@ -2,11 +2,12 @@
 
 {% block main -%}
       {% if not current_user.is_authenticated -%}
-      <div class="btn join"><a href="{{ url_for("login.login") }}">Login</a></div>
+      <div class="btn join"><a href="{{ url_for("login.login") }}">ログイン</a></div>
       {%- else -%}
-        {% if not keystrokes -%}
-        <div class="btn register"><a href="{{ url_for("main.register") }}">Register</a></div>
-        <!-- <div class="btn authtest"><a href="{{ url_for("main.authtest") }}">Test</a></div> -->
+        {% if current_user.lname_r == None or current_user.fname_r == None: -%}
+        <div class="btn register"><a href="{{ url_for("main.preset") }}">初期設定</a></div>
+        {%- elif crearCount < 5 -%}
+        <div class="btn register"><a href="{{ url_for("main.register") }}">Step <span class="count">{{ crearCount - 1 }}</span> / 4</a></div>
         {%- else -%}
         <p class="message">Thank you!</p>
         {%- endif %}

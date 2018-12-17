@@ -12,8 +12,6 @@ from requests_oauthlib import OAuth2Session
 class BaseConfig(object):
     DEBUG                          = True
     SECRET_KEY                     = "gq7j847gq7j847gq7j847"
-    #DATABASE_FILE                  = "dbs/keystroke.db"
-    #SQLALCHEMY_DATABASE_URI        = "sqlite:///" + DATABASE_FILE
     SQLALCHEMY_DATABASE_URI        = os.environ["DATABASE_URL"]
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     OAUTH1_PROVIDER_ENFORCE_SSL    = False
@@ -27,7 +25,7 @@ class GOOGLE(object):
     CLIENT_ID     = "767804331266-s5tn2psi484k2c5n5d2e7sl9blef7pqi.apps.googleusercontent.com"
     CLIENT_SECRET = "hItrQiau-ss9QDmx_3vua1UU"
     REDIRECT_URI  = "https://keystroke-logger.herokuapp.com/user/login/authorized"
-    #  REDIRECT_URI  = "http://localhost:5000/user/login/authorized"
+    # REDIRECT_URI  = "http://localhost:5000/user/login/authorized"
 
     AUTH_URL  = "https://accounts.google.com/o/oauth2/auth"
     TOKEN_URL = "https://accounts.google.com/o/oauth2/token"

@@ -29,6 +29,8 @@ export default class KeystrokeInput extends React.Component {
   getKey(c) {
     if(c >= 65 && c <= 90)
       return String.fromCharCode(c).toLowerCase()
+    else if(c == 13)
+      this.props.nextStroke()
     else
       return undefined
   }

@@ -60,7 +60,7 @@ export default class Keystroke extends React.Component {
       if(stroke["event"] == "p")
         sentence += stroke["key"]
     })
-    if(sentence != "inumoarukebabouniataru") {
+    if(sentence != document.getElementsByClassName("ro")[0].innerHTML.toLowerCase()) {
       this.resetStroke()
       return
     }
@@ -99,7 +99,7 @@ export default class Keystroke extends React.Component {
   render() {
     return (
       <div className="wrap">
-        <KeystrokeInput ref="KeystrokeInput" onStroke={this.onStroke} />
+        <KeystrokeInput ref="KeystrokeInput" onStroke={this.onStroke} nextStroke={this.nextStroke} />
         <div className="counter">{ this.state.count } / 12</div>
         <KeystrokeButton ref="KeystrokeButton" resetStroke={this.resetStroke} nextStroke={this.nextStroke} btnValue={this.state.btnValue} />
       </div>
