@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python ~/prog/Labo/KeystrokeLogger/manage.py runserver
