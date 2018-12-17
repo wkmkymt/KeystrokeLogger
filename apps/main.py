@@ -26,7 +26,6 @@ def index():
         keystrokes = Keystroke.getKeystrokesByUser(current_user.id)
     else:
         keystrokes = None
-    print(keystrokes)
     return render_template("index.html", keystrokes = keystrokes)
 
 
